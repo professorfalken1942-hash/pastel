@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Services | Pastel Makeup and Style",
-  description: "Bridal beauty, fashion, editorial, TV & film, wardrobe styling, and special events — by Julianna Pastella in Syracuse, NY.",
+  description: "Wedding beauty, fashion, editorial, TV & film, wardrobe styling, and special events — by Julianna Pastella in Syracuse, NY.",
 };
 
 const services = [
@@ -11,12 +11,12 @@ const services = [
     category: "Weddings",
     items: [
       {
-        title: "Bridal Beauty",
+        title: "Wedding Beauty",
         desc: "Your wedding day is unlike any other. Julianna works closely with each bride to create a look that feels entirely, authentically her — from timeless classics to modern couture. Full-day availability.",
         note: "Includes trial session",
       },
       {
-        title: "Bridal Party",
+        title: "Wedding Party",
         desc: "Cohesive, beautiful looks for your entire wedding party. Coordinated to complement the bride while honoring each individual's natural beauty.",
         note: "Pricing per person",
       },

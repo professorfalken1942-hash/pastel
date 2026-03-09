@@ -22,7 +22,7 @@ export default function Home() {
           color: "var(--mink)",
           marginBottom: "2rem",
         }}>
-          Luxury Bridal Makeup
+          Luxury Wedding Makeup
         </p>
         <h1 style={{
           fontFamily: "var(--font-serif)",
@@ -111,8 +111,8 @@ export default function Home() {
           margin: "0 auto",
         }}>
           {[
-            { title: "Bridal Beauty", desc: "Classic to couture — full wedding day artistry honoring your individuality." },
-            { title: "Bridal Party", desc: "Cohesive, beautiful looks for your entire party from prep to last dance." },
+            { title: "Wedding Beauty", desc: "Classic to couture — full wedding day artistry honoring your individuality." },
+            { title: "Wedding Party", desc: "Cohesive, beautiful looks for your entire party from prep to last dance." },
             { title: "Fashion & Editorial", desc: "Striking runway and editorial designs for shoots, campaigns, and fashion events." },
             { title: "TV & Film", desc: "Professional makeup for television, film, and on-camera productions." },
             { title: "Wardrobe & Set Styling", desc: "Complete wardrobe curation and set styling for productions and events." },

@@ -87,8 +87,8 @@ export default function ContactPage() {
             <label style={labelStyle}>Service</label>
             <select style={inputStyle} name="service">
               <option value="">Select a service…</option>
-              <option>Bridal Beauty</option>
-              <option>Bridal Party</option>
+              <option>Wedding Beauty</option>
+              <option>Wedding Party</option>
               <option>Fashion / Editorial</option>
               <option>TV & Film</option>
               <option>Wardrobe & Set Styling</option>

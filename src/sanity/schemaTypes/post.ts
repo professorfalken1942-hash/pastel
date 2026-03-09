@@ -23,7 +23,7 @@ export const post = defineType({
       title: 'Category',
       type: 'string',
       options: {
-        list: ['Bridal', 'Trends', 'Editorial', 'Behind the Scenes', 'Tips'],
+        list: ['Wedding', 'Trends', 'Editorial', 'Behind the Scenes', 'Tips'],
       },
     }),
     defineField({

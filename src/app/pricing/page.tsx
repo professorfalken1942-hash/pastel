@@ -5,7 +5,7 @@ import { servicesQuery } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Pricing | Pastel Makeup and Style",
-  description: "Transparent pricing for bridal, editorial, event, and production beauty services by Pastel Makeup and Style.",
+  description: "Transparent pricing for wedding, editorial, event, and production beauty services by Pastel Makeup and Style.",
 };
 
 export const revalidate = 60;
@@ -26,9 +26,9 @@ export default async function PricingPage() {
     {
       category: "Weddings",
       items: [
-        { service: "Bridal Makeup (incl. trial)", price: "From $XXX" },
+        { service: "Wedding Makeup (incl. trial)", price: "From $XXX" },
         { service: "Trial Session only", price: "From $XXX" },
-        { service: "Bridesmaid / Bridal Party (per person)", price: "From $XXX" },
+        { service: "Bridesmaid / Wedding Party (per person)", price: "From $XXX" },
       ],
     },
     {
