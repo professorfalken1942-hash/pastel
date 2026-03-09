@@ -49,8 +49,16 @@ export default function ContactPage() {
         </p>
       </section>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .contact-grid { grid-template-columns: 1fr !important; gap: 3rem !important; padding: 4rem 1.25rem !important; }
+          .pricing-grid { padding: 4rem 1.25rem !important; }
+          .blog-article { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+        }
+      `}</style>
+
       {/* Form + Info */}
-      <section style={{
+      <section className="contact-grid" style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         gap: "6rem",

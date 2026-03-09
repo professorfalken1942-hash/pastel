@@ -68,8 +68,13 @@ export default function BlogPage() {
         margin: "0 auto",
         padding: "6rem 3rem",
       }}>
+        <style>{`
+          @media (max-width: 768px) {
+            .blog-article { grid-template-columns: 1fr !important; gap: 1rem !important; padding: 2.5rem 0 !important; }
+          }
+        `}</style>
         {posts.map((post, i) => (
-          <article key={post.slug} style={{
+          <article key={post.slug} className="blog-article" style={{
             display: "grid",
             gridTemplateColumns: "1fr 2fr",
             gap: "4rem",

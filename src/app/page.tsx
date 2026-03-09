@@ -50,7 +50,7 @@ export default function Home() {
           A beauty and styling brand by Julianna Pastella.<br />
           Weddings, fashion, and special events — Syracuse, NY.
         </p>
-        <div style={{ display: "flex", gap: "1.5rem" }}>
+        <div className="hero-buttons" style={{ display: "flex", gap: "1.5rem" }}>
           <Link href="/book" style={{
             fontFamily: "var(--font-sans)",
             fontSize: "0.7rem",
@@ -105,7 +105,7 @@ export default function Home() {
         </h2>
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
           gap: "3rem",
           maxWidth: "1100px",
           margin: "0 auto",
@@ -142,7 +142,7 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section style={{
+      <section className="about-grid" style={{
         padding: "8rem 3rem",
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
@@ -151,6 +151,13 @@ export default function Home() {
         margin: "0 auto",
         alignItems: "center",
       }}>
+        <style>{`
+          @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr !important; gap: 3rem !important; padding: 4rem 1.25rem !important; }
+            .hero-buttons { flex-direction: column !important; align-items: center !important; }
+            .services-grid { grid-template-columns: 1fr !important; }
+          }
+        `}</style>
         <div>
           <p style={{
             fontFamily: "var(--font-sans)",

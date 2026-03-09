@@ -15,6 +15,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -28,4 +30,40 @@ h1, h2, h3, h4 {
   font-family: var(--font-serif);
   font-weight: 300;
   letter-spacing: 0.02em;
+}
+
+/* ── Mobile overrides ── */
+@media (max-width: 768px) {
+
+  /* Two-col grids → single column */
+  section[style*="grid-template-columns: 1fr 1fr"],
+  section[style*="gridTemplateColumns: '1fr 1fr'"] {
+    display: block !important;
+  }
+
+  /* Generous side padding on mobile */
+  section, .page-section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* Footer stacks */
+  footer {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    text-align: center !important;
+    padding: 3rem 1.25rem !important;
+  }
+
+  footer nav {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  /* Page hero padding */
+  .page-hero {
+    padding-top: 8rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
 }
