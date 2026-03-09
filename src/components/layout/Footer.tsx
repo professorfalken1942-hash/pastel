@@ -41,7 +41,7 @@ export default function Footer() {
         letterSpacing: "0.1em",
         color: "var(--mink)",
       }}>
-        © {new Date().getFullYear()} Pastel
+        © {new Date().getFullYear()} Pastel Makeup and Style
       </span>
     </footer>
   );
