@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Pastel | Bridal Makeup Artist",
-  description: "Luxury bridal makeup. Effortlessly beautiful.",
+  description: "Luxury bridal makeup artist based in Syracuse, NY. Available for travel.",
   metadataBase: new URL("https://pastelstyle.art"),
   openGraph: {
     title: "Pastel | Bridal Makeup Artist",

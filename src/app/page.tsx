@@ -48,7 +48,7 @@ export default function Home() {
           marginBottom: "3rem",
         }}>
           Bridal makeup and beauty artistry for the modern bride. 
-          Based in New York, available for travel.
+          Based in Syracuse, NY — available for travel.
         </p>
         <div style={{ display: "flex", gap: "1.5rem" }}>
           <Link href="/book" style={{
