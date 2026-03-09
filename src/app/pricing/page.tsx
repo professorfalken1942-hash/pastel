@@ -1,50 +1,61 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { client } from "@/sanity/client";
+import { servicesQuery } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Pricing | Pastel Makeup and Style",
   description: "Transparent pricing for bridal, editorial, event, and production beauty services by Pastel Makeup and Style.",
 };
 
-const tiers = [
-  {
-    category: "Weddings",
-    items: [
-      { service: "Bridal Makeup (incl. trial)", price: "From $XXX" },
-      { service: "Trial Session only", price: "From $XXX" },
-      { service: "Bridesmaid / Bridal Party (per person)", price: "From $XXX" },
-      { service: "Flower Girl", price: "From $XXX" },
-    ],
-  },
-  {
-    category: "Fashion & Editorial",
-    items: [
-      { service: "Half Day (up to 4 hrs)", price: "From $XXX" },
-      { service: "Full Day (up to 8 hrs)", price: "From $XXX" },
-      { service: "Wardrobe / Set Styling (half day)", price: "From $XXX" },
-      { service: "Wardrobe / Set Styling (full day)", price: "From $XXX" },
-    ],
-  },
-  {
-    category: "TV & Film",
-    items: [
-      { service: "Day Rate", price: "From $XXX" },
-      { service: "Buyout / Project Rate", price: "Enquire" },
-    ],
-  },
-  {
-    category: "Special Events",
-    items: [
-      { service: "Individual Event Glam", price: "From $XXX" },
-      { service: "Group Booking (3+ people)", price: "From $XXX pp" },
-    ],
-  },
-];
+export const revalidate = 60;
 
-export default function PricingPage() {
+const CATEGORIES = ["Weddings", "Fashion & Editorial", "TV & Film", "Special Events"];
+
+export default async function PricingPage() {
+  const services = await client.fetch(servicesQuery).catch(() => []);
+
+  // Group by category
+  const grouped = CATEGORIES.map((cat) => ({
+    category: cat,
+    items: services.filter((s: any) => s.category === cat),
+  })).filter((g) => g.items.length > 0);
+
+  // Fallback placeholder if Sanity is empty
+  const tiers = grouped.length > 0 ? grouped : [
+    {
+      category: "Weddings",
+      items: [
+        { service: "Bridal Makeup (incl. trial)", price: "From $XXX" },
+        { service: "Trial Session only", price: "From $XXX" },
+        { service: "Bridesmaid / Bridal Party (per person)", price: "From $XXX" },
+      ],
+    },
+    {
+      category: "Fashion & Editorial",
+      items: [
+        { service: "Half Day (up to 4 hrs)", price: "From $XXX" },
+        { service: "Full Day (up to 8 hrs)", price: "From $XXX" },
+      ],
+    },
+    {
+      category: "TV & Film",
+      items: [
+        { service: "Day Rate", price: "From $XXX" },
+        { service: "Buyout / Project Rate", price: "Enquire" },
+      ],
+    },
+    {
+      category: "Special Events",
+      items: [
+        { service: "Individual Event Glam", price: "From $XXX" },
+        { service: "Group Booking (3+ people)", price: "From $XXX pp" },
+      ],
+    },
+  ];
+
   return (
     <>
-      {/* Header */}
       <section style={{
         paddingTop: "12rem",
         paddingBottom: "5rem",
@@ -85,9 +96,8 @@ export default function PricingPage() {
         </p>
       </section>
 
-      {/* Pricing tables */}
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "6rem 3rem" }}>
-        {tiers.map((tier, i) => (
+        {tiers.map((tier: any, i: number) => (
           <div key={tier.category} style={{ marginBottom: i < tiers.length - 1 ? "5rem" : 0 }}>
             <p style={{
               fontFamily: "var(--font-sans)",
@@ -99,8 +109,8 @@ export default function PricingPage() {
             }}>
               {tier.category}
             </p>
-            {tier.items.map((item, j) => (
-              <div key={item.service} style={{
+            {tier.items.map((item: any, j: number) => (
+              <div key={item.title || item.service} style={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "baseline",
@@ -114,7 +124,7 @@ export default function PricingPage() {
                   fontWeight: 300,
                   letterSpacing: "0.04em",
                 }}>
-                  {item.service}
+                  {item.title || item.service}
                 </span>
                 <span style={{
                   fontFamily: "var(--font-serif)",
@@ -130,7 +140,6 @@ export default function PricingPage() {
           </div>
         ))}
 
-        {/* Notes */}
         <div style={{
           marginTop: "5rem",
           padding: "2.5rem",
@@ -144,16 +153,13 @@ export default function PricingPage() {
             lineHeight: 1.9,
             color: "var(--charcoal)",
           }}>
-            <strong style={{ fontWeight: 500 }}>Travel:</strong> Travel fees may apply for locations outside Syracuse, NY.
-            <br />
-            <strong style={{ fontWeight: 500 }}>Deposits:</strong> A deposit is required to secure your date. Details provided on booking.
-            <br />
-            <strong style={{ fontWeight: 500 }}>Custom projects:</strong> Rates for TV, film, and large-scale productions are quoted individually.
+            <strong style={{ fontWeight: 500 }}>Travel:</strong> Travel fees may apply for locations outside Syracuse, NY.<br />
+            <strong style={{ fontWeight: 500 }}>Deposits:</strong> A deposit is required to secure your date.<br />
+            <strong style={{ fontWeight: 500 }}>Custom projects:</strong> TV, film, and large-scale productions are quoted individually.
           </p>
         </div>
       </div>
 
-      {/* CTA */}
       <section style={{
         padding: "6rem 3rem",
         textAlign: "center",
