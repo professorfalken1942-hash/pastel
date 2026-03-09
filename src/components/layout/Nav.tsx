@@ -15,6 +15,15 @@ export default function Nav() {
 
   return (
     <>
+      <style>{`
+        .nav-desktop { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.25rem; z-index: 60; }
+        @media (max-width: 768px) {
+          .nav-desktop { display: none !important; }
+          .nav-hamburger { display: flex !important; }
+        }
+      `}</style>
+
       <header style={{
         position: "fixed",
         top: 0,
@@ -43,11 +52,7 @@ export default function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <nav style={{
-          display: "flex",
-          gap: "2.5rem",
-          alignItems: "center",
-        }} className="desktop-nav">
+        <nav className="nav-desktop">
           {links.map((link) => (
             <Link key={link.href} href={link.href} style={{
               fontFamily: "var(--font-sans)",
@@ -78,26 +83,16 @@ export default function Nav() {
 
         {/* Hamburger */}
         <button
+          className="nav-hamburger"
           onClick={() => setOpen(!open)}
-          className="hamburger"
           aria-label="Toggle menu"
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: "0.25rem",
-            zIndex: 60,
-            display: "none",
-            flexDirection: "column",
-            gap: "5px",
-          }}
         >
           <span style={{
             display: "block",
             width: "24px",
             height: "1px",
             backgroundColor: "var(--charcoal)",
-            transition: "all 0.3s",
+            transition: "transform 0.3s",
             transform: open ? "rotate(45deg) translate(4px, 4px)" : "none",
           }} />
           <span style={{
@@ -105,7 +100,7 @@ export default function Nav() {
             width: "24px",
             height: "1px",
             backgroundColor: "var(--charcoal)",
-            transition: "all 0.3s",
+            transition: "opacity 0.3s",
             opacity: open ? 0 : 1,
           }} />
           <span style={{
@@ -113,7 +108,7 @@ export default function Nav() {
             width: "24px",
             height: "1px",
             backgroundColor: "var(--charcoal)",
-            transition: "all 0.3s",
+            transition: "transform 0.3s",
             transform: open ? "rotate(-45deg) translate(4px, -4px)" : "none",
           }} />
         </button>
@@ -160,13 +155,6 @@ export default function Nav() {
           Book Now
         </Link>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .desktop-nav { display: none !important; }
-          .hamburger { display: flex !important; }
-        }
-      `}</style>
     </>
   );
 }
