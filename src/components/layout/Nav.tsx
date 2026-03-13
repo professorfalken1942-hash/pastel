@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const links = [
@@ -39,16 +40,22 @@ export default function Nav() {
       }}>
         {/* Logo */}
         <Link href="/" onClick={() => setOpen(false)} style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "1.4rem",
-          fontWeight: 300,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "var(--charcoal)",
-          textDecoration: "none",
+          display: "flex",
+          alignItems: "center",
           zIndex: 60,
+          textDecoration: "none",
         }}>
-          Pastel
+          <Image
+            src="/pastel-logo.jpg"
+            alt="Pastel"
+            width={40}
+            height={40}
+            style={{
+              height: "40px",
+              width: "auto",
+              objectFit: "contain",
+            }}
+          />
         </Link>
 
         {/* Desktop nav */}
