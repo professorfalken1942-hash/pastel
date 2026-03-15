@@ -161,7 +161,7 @@ export default function ServicesPage() {
                   fontSize: "0.65rem",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: "var(--dusty-rose)",
+                  color: "var(--pink)",
                 }}>
                   {item.note}
                 </p>
@@ -199,8 +199,8 @@ export default function ServicesPage() {
             fontSize: "0.7rem",
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "var(--white)",
-            backgroundColor: "var(--charcoal)",
+            color: "var(--charcoal)",
+            backgroundColor: "var(--pink)",
             padding: "1rem 2.5rem",
             textDecoration: "none",
           }}>

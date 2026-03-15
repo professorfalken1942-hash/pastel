@@ -56,8 +56,8 @@ export default function Home() {
             fontSize: "0.7rem",
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "var(--white)",
-            backgroundColor: "var(--charcoal)",
+            color: "var(--charcoal)",
+            backgroundColor: "var(--pink)",
             padding: "1rem 2.5rem",
             textDecoration: "none",
           }}>
@@ -222,15 +222,15 @@ export default function Home() {
       <section style={{
         padding: "8rem 3rem",
         textAlign: "center",
-        backgroundColor: "var(--charcoal)",
-        color: "var(--cream)",
+        backgroundColor: "var(--pink)",
+        color: "var(--charcoal)",
       }}>
         <h2 style={{
           fontFamily: "var(--font-serif)",
           fontSize: "clamp(2rem, 4vw, 3.5rem)",
           fontWeight: 300,
           marginBottom: "1.5rem",
-          color: "var(--cream)",
+          color: "var(--charcoal)",
         }}>
           Ready to begin?
         </h2>

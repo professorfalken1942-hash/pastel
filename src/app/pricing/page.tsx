@@ -144,7 +144,7 @@ export default async function PricingPage() {
           marginTop: "5rem",
           padding: "2.5rem",
           backgroundColor: "var(--blush)",
-          borderLeft: "3px solid var(--dusty-rose)",
+          borderLeft: "3px solid var(--pink)",
         }}>
           <p style={{
             fontFamily: "var(--font-sans)",
@@ -178,8 +178,8 @@ export default async function PricingPage() {
           fontSize: "0.7rem",
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "var(--white)",
-          backgroundColor: "var(--charcoal)",
+          color: "var(--charcoal)",
+          backgroundColor: "var(--pink)",
           padding: "1rem 2.5rem",
           textDecoration: "none",
         }}>

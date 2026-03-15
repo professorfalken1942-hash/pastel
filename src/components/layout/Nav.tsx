@@ -79,8 +79,8 @@ export default function Nav() {
             fontWeight: 400,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "var(--white)",
-            backgroundColor: "var(--charcoal)",
+            color: "var(--charcoal)",
+            backgroundColor: "var(--pink)",
             padding: "0.6rem 1.4rem",
             textDecoration: "none",
           }}>
@@ -98,7 +98,7 @@ export default function Nav() {
             display: "block",
             width: "24px",
             height: "1px",
-            backgroundColor: "var(--charcoal)",
+            backgroundColor: "var(--pink)",
             transition: "transform 0.3s",
             transform: open ? "rotate(45deg) translate(4px, 4px)" : "none",
           }} />
@@ -106,7 +106,7 @@ export default function Nav() {
             display: "block",
             width: "24px",
             height: "1px",
-            backgroundColor: "var(--charcoal)",
+            backgroundColor: "var(--pink)",
             transition: "opacity 0.3s",
             opacity: open ? 0 : 1,
           }} />
@@ -114,7 +114,7 @@ export default function Nav() {
             display: "block",
             width: "24px",
             height: "1px",
-            backgroundColor: "var(--charcoal)",
+            backgroundColor: "var(--pink)",
             transition: "transform 0.3s",
             transform: open ? "rotate(-45deg) translate(4px, -4px)" : "none",
           }} />
@@ -154,8 +154,8 @@ export default function Nav() {
           fontSize: "0.7rem",
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "var(--white)",
-          backgroundColor: "var(--charcoal)",
+          color: "var(--charcoal)",
+          backgroundColor: "var(--pink)",
           padding: "1rem 2.5rem",
           textDecoration: "none",
         }}>

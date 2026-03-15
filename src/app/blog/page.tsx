@@ -78,7 +78,7 @@ export default async function BlogPage() {
                   fontSize: "0.65rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "var(--dusty-rose)",
+                  color: "var(--pink)",
                   marginBottom: "0.5rem",
                 }}>
                   {post.category}
