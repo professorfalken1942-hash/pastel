@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+
 
 export const metadata: Metadata = {
   title: "Book | Pastel Makeup and Style",
@@ -50,62 +50,24 @@ export default function BookPage() {
         </p>
       </section>
 
-      {/* HoneyBook embed placeholder */}
+      {/* HoneyBook embed */}
       <section style={{
-        maxWidth: "900px",
+        maxWidth: "960px",
         margin: "0 auto",
-        padding: "8rem 3rem",
-        textAlign: "center",
+        padding: "5rem 3rem 10rem",
       }}>
-        {/* TODO: Replace this section with HoneyBook embed code */}
-        <div style={{
-          padding: "6rem 3rem",
-          border: "1px dashed var(--blush)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "1.5rem",
-        }}>
-          <p style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.65rem",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            color: "var(--mink)",
-          }}>
-            Booking Widget
-          </p>
-          <p style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "1.6rem",
-            fontWeight: 300,
-            color: "var(--charcoal)",
-          }}>
-            HoneyBook booking form coming soon
-          </p>
-          <p style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.78rem",
-            fontWeight: 300,
-            color: "var(--mink)",
-            maxWidth: "400px",
-            lineHeight: 1.8,
-          }}>
-            In the meantime, use the contact form to reach Julianna directly and reserve your date.
-          </p>
-          <Link href="/contact" style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.7rem",
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "var(--white)",
-            backgroundColor: "var(--charcoal)",
-            padding: "1rem 2.5rem",
-            textDecoration: "none",
-          }}>
-            Contact Julianna
-          </Link>
-        </div>
+        <iframe
+          src="https://1757625758.hbportal.co/public/68c33e10dc84ad00010b83ad"
+          width="100%"
+          height="900"
+          frameBorder="0"
+          style={{
+            border: "none",
+            display: "block",
+          }}
+          title="Book with Julianna — Pastel Makeup and Style"
+          allowFullScreen
+        />
       </section>
     </>
   );
