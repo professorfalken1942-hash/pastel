@@ -12,6 +12,11 @@
   --mink: #8b6f6f;
   --charcoal: #2c2c2c;
   --white: #ffffff;
+  
+  /* Material Design Motion */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
 }
 
 * {
@@ -31,6 +36,88 @@ h1, h2, h3, h4 {
   font-family: var(--font-serif);
   font-weight: 300;
   letter-spacing: 0.02em;
+}
+
+/* Motion & Micro-interactions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Buttons */
+button, [role="button"], a[href^="#"] {
+  transition: all 200ms var(--ease-standard);
+}
+
+button:hover, [role="button"]:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button:active, [role="button"]:active {
+  transform: scale(0.98);
+  transition: all 100ms var(--ease-standard);
+}
+
+button:focus-visible, [role="button"]:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 2px;
+}
+
+/* Links */
+a {
+  position: relative;
+  transition: color 200ms var(--ease-standard);
+}
+
+a:not([href^="#"]):not([href^="/"]):not([class*="btn"]):not([class*="button"])::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 200ms var(--ease-standard);
+}
+
+a:not([href^="#"]):not([href^="/"]):not([class*="btn"]):not([class*="button"]):hover::after {
+  width: 100%;
+}
+
+/* Cards */
+.card, [class*="card"], [class*="Card"] {
+  transition: all 300ms var(--ease-standard);
+}
+
+.card:hover, [class*="card"]:hover, [class*="Card"]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade In */
+.fade-in {
+  animation: fadeIn 400ms var(--ease-decelerate) forwards;
+}
+
+/* Slide In Up */
+.slide-in-up {
+  animation: slideInUp 400ms var(--ease-decelerate) forwards;
 }
 
 /* ── Mobile overrides ── */
