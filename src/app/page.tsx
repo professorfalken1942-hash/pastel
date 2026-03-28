@@ -56,7 +56,7 @@ export default function Home() {
             color: "var(--charcoal)",
             marginBottom: "2rem",
           }}>
-            Luxury Wedding Makeup
+            Couture Wedding Makeup
           </p>
           <h1 style={{
             fontFamily: "var(--font-serif)",
