@@ -1,11 +1,64 @@
+'use client';
+
+import { useState } from 'react';
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Contact | Pastel Makeup and Style",
-  description: "Get in touch with Pastel Makeup and Style — Julianna Pastella, Syracuse NY.",
-};
-
+// Note: Metadata export doesn't work in client components, but we'll handle it with layout
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    service: '',
+    date: '',
+    message: '',
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setSubmitted(true);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        service: '',
+        date: '',
+        message: '',
+      });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+      console.error('Form submission error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
       {/* Header */}
@@ -68,24 +121,82 @@ export default function ContactPage() {
         alignItems: "start",
       }}>
         {/* Contact Form */}
-        <form style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+          {submitted && (
+            <div style={{
+              padding: "1rem",
+              backgroundColor: "rgba(0, 208, 132, 0.1)",
+              border: "1px solid rgb(0, 208, 132)",
+              borderRadius: "4px",
+              color: "rgb(0, 100, 84)",
+            }}>
+              <p style={{ margin: 0, fontFamily: "var(--font-sans)", fontSize: "0.85rem" }}>
+                ✓ Thank you! We'll be in touch within 24–48 hours.
+              </p>
+            </div>
+          )}
+
+          {error && (
+            <div style={{
+              padding: "1rem",
+              backgroundColor: "rgba(255, 71, 87, 0.1)",
+              border: "1px solid rgb(255, 71, 87)",
+              borderRadius: "4px",
+              color: "rgb(200, 50, 60)",
+            }}>
+              <p style={{ margin: 0, fontFamily: "var(--font-sans)", fontSize: "0.85rem" }}>
+                ✗ {error}
+              </p>
+            </div>
+          )}
+
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
             <div>
               <label style={labelStyle}>First Name</label>
-              <input style={inputStyle} type="text" name="firstName" required />
+              <input
+                style={inputStyle}
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+                disabled={isSubmitting}
+              />
             </div>
             <div>
               <label style={labelStyle}>Last Name</label>
-              <input style={inputStyle} type="text" name="lastName" required />
+              <input
+                style={inputStyle}
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+                disabled={isSubmitting}
+              />
             </div>
           </div>
           <div>
             <label style={labelStyle}>Email</label>
-            <input style={inputStyle} type="email" name="email" required />
+            <input
+              style={inputStyle}
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              disabled={isSubmitting}
+            />
           </div>
           <div>
             <label style={labelStyle}>Service</label>
-            <select style={inputStyle} name="service">
+            <select
+              style={inputStyle}
+              name="service"
+              value={formData.service}
+              onChange={handleChange}
+              disabled={isSubmitting}
+            >
               <option value="">Select a service…</option>
               <option>Wedding Beauty</option>
               <option>Wedding Party</option>
@@ -98,25 +209,45 @@ export default function ContactPage() {
           </div>
           <div>
             <label style={labelStyle}>Event Date</label>
-            <input style={inputStyle} type="date" name="date" />
+            <input
+              style={inputStyle}
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              disabled={isSubmitting}
+            />
           </div>
           <div>
             <label style={labelStyle}>Message</label>
-            <textarea style={{ ...inputStyle, minHeight: "140px", resize: "vertical" }} name="message" required />
+            <textarea
+              style={{ ...inputStyle, minHeight: "140px", resize: "vertical" }}
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              disabled={isSubmitting}
+            />
           </div>
-          <button type="submit" style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.7rem",
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "var(--charcoal)",
-            backgroundColor: "var(--pink)",
-            border: "none",
-            padding: "1rem 2.5rem",
-            cursor: "pointer",
-            alignSelf: "flex-start",
-          }}>
-            Send Message
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: "0.7rem",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "var(--charcoal)",
+              backgroundColor: isSubmitting ? "rgba(255, 174, 215, 0.5)" : "var(--pink)",
+              border: "none",
+              padding: "1rem 2.5rem",
+              cursor: isSubmitting ? "not-allowed" : "pointer",
+              alignSelf: "flex-start",
+              opacity: isSubmitting ? 0.6 : 1,
+              transition: "all 0.2s",
+            }}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
           <p style={{
             fontFamily: "var(--font-sans)",
@@ -124,7 +255,6 @@ export default function ContactPage() {
             color: "var(--mink)",
             letterSpacing: "0.05em",
           }}>
-            {/* TODO: wire up to Resend API */}
             We typically respond within 24–48 hours.
           </p>
         </form>
