@@ -24,32 +24,55 @@ export default async function PricingPage() {
   // Fallback placeholder if Sanity is empty
   const tiers = grouped.length > 0 ? grouped : [
     {
-      category: "Weddings",
+      category: "Wedding Day Beauty",
       items: [
-        { service: "Wedding Makeup (incl. trial)", price: "From $XXX" },
-        { service: "Trial Session only", price: "From $XXX" },
-        { service: "Bridesmaid / Wedding Party (per person)", price: "From $XXX" },
+        { service: "Makeup", price: "$250.00" },
+        { service: "Hair", price: "$250.00" },
       ],
     },
     {
-      category: "Fashion & Editorial",
+      category: "Grooms, Grammies + Girls",
+      description: "A freshen up application.",
       items: [
-        { service: "Half Day (up to 4 hrs)", price: "From $XXX" },
-        { service: "Full Day (up to 8 hrs)", price: "From $XXX" },
+        { service: "Makeup", price: "$60.00" },
+        { service: "Hair", price: "$60.00" },
       ],
     },
     {
-      category: "TV & Film",
+      category: "Maids + Moms",
+      description: "There is a $50.00 upgrade for luxury looks.",
       items: [
-        { service: "Day Rate", price: "From $XXX" },
-        { service: "Buyout / Project Rate", price: "Enquire" },
+        { service: "Makeup", price: "$150.00" },
+        { service: "Hair", price: "$150.00" },
       ],
     },
     {
-      category: "Special Events",
+      category: "In-Studio Trial",
+      description: "For beauty preview only.",
       items: [
-        { service: "Individual Event Glam", price: "From $XXX" },
-        { service: "Group Booking (3+ people)", price: "From $XXX pp" },
+        { service: "Makeup (one look)", price: "$175.00" },
+        { service: "Hair (one look)", price: "$175.00" },
+      ],
+    },
+    {
+      category: "Add-Ons & Services",
+      items: [
+        { service: "Booking Fee (non-refundable)", price: "$150.00" },
+        { service: "Lodging Fee (4+ hr RT required)", price: "$250.00+" },
+        { service: "Tattoo/Body Coverage", price: "$25.00+" },
+        { service: "Clip-In Extensions", price: "$50.00" },
+        { service: "On-Location Touch-Ups (per hour, 1 hr min)", price: "$100.00/hr" },
+        { service: "Early Start Fee (before 8AM without lodging)", price: "$150.00" },
+        { service: "Travel Fee", price: "$200.00/service" },
+        { service: "Additional Artist (6+ people)", price: "$150.00" },
+        { service: "Holiday Booking Fee", price: "$150.00" },
+        { service: "Day-Of Coordination", price: "$2,800.00+" },
+      ],
+    },
+    {
+      category: "Special Packages",
+      items: [
+        { service: "Elopement Package", price: "Custom quote" },
       ],
     },
   ];
@@ -105,10 +128,21 @@ export default async function PricingPage() {
               letterSpacing: "0.3em",
               textTransform: "uppercase",
               color: "var(--mink)",
-              marginBottom: "2rem",
+              marginBottom: tier.description ? "0.5rem" : "2rem",
             }}>
               {tier.category}
             </p>
+            {tier.description && (
+              <p style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: "0.75rem",
+                fontWeight: 300,
+                color: "var(--mink)",
+                marginBottom: "1.5rem",
+              }}>
+                {tier.description}
+              </p>
+            )}
             {tier.items.map((item: any, j: number) => (
               <div key={item.title || item.service} style={{
                 display: "flex",
