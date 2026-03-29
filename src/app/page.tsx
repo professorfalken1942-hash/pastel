@@ -56,7 +56,7 @@ export default function Home() {
             color: "var(--charcoal)",
             marginBottom: "2rem",
           }}>
-            Couture Wedding Makeup
+            Wedding + Style
           </p>
           <h1 style={{
             fontFamily: "var(--font-serif)",
