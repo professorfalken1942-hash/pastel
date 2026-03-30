@@ -261,33 +261,98 @@ export default function ContactPage() {
 
         {/* Info */}
         <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
-          {[
-            { label: "Location", value: "Syracuse, New York\nAvailable for travel" },
-            { label: "Instagram", value: "@pastelmakeupandstyle" },
-            { label: "Bookings", value: "Use the contact form or book directly via our booking page." },
-          ].map((item) => (
-            <div key={item.label} style={{ borderTop: "1px solid var(--blush)", paddingTop: "1.5rem" }}>
-              <p style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: "0.65rem",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "var(--mink)",
-                marginBottom: "0.75rem",
-              }}>
-                {item.label}
-              </p>
-              <p style={{
+          {/* Location */}
+          <div style={{ borderTop: "1px solid var(--blush)", paddingTop: "1.5rem" }}>
+            <p style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: "0.65rem",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "var(--mink)",
+              marginBottom: "0.75rem",
+            }}>
+              Location
+            </p>
+            <p style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "1.2rem",
+              fontWeight: 300,
+              lineHeight: 1.6,
+              whiteSpace: "pre-line",
+            }}>
+              Syracuse, New York{"\n"}Available for travel
+            </p>
+          </div>
+
+          {/* Instagram with icon */}
+          <div style={{ borderTop: "1px solid var(--blush)", paddingTop: "1.5rem" }}>
+            <p style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: "0.65rem",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "var(--mink)",
+              marginBottom: "0.75rem",
+            }}>
+              Instagram
+            </p>
+            <a
+              href="https://instagram.com/pastelmakeupandstyle"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
                 fontFamily: "var(--font-serif)",
                 fontSize: "1.2rem",
                 fontWeight: 300,
-                lineHeight: 1.6,
-                whiteSpace: "pre-line",
-              }}>
-                {item.value}
-              </p>
-            </div>
-          ))}
+                color: "var(--charcoal)",
+                textDecoration: "none",
+                transition: "opacity 0.2s",
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.opacity = "0.6"}
+              onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <circle cx="17.5" cy="6.5" r="1.5" />
+              </svg>
+              @pastelmakeupandstyle
+            </a>
+          </div>
+
+          {/* Bookings */}
+          <div style={{ borderTop: "1px solid var(--blush)", paddingTop: "1.5rem" }}>
+            <p style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: "0.65rem",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "var(--mink)",
+              marginBottom: "0.75rem",
+            }}>
+              Bookings
+            </p>
+            <p style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "1.2rem",
+              fontWeight: 300,
+              lineHeight: 1.6,
+            }}>
+              Use the contact form or book directly via our booking page.
+            </p>
+          </div>
         </div>
       </section>
     </>
