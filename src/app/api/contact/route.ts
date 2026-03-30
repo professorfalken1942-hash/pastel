@@ -2,8 +2,9 @@ import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 interface ContactFormData {
   firstName: string;
@@ -16,6 +17,13 @@ interface ContactFormData {
 
 export async function POST(request: NextRequest) {
   try {
+    if (!resend) {
+      return NextResponse.json(
+        { error: 'Email service not configured' },
+        { status: 503 }
+      );
+    }
+
     const data: ContactFormData = await request.json();
 
     const { firstName, lastName, email, service, date, message } = data;
