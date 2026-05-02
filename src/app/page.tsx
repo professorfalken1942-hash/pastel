@@ -59,17 +59,18 @@ export default function Home() {
             Wedding + Style
           </p>
           <h1 style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "clamp(3rem, 8vw, 7rem)",
-            fontWeight: 300,
+            fontFamily: "var(--font-sans)",
+            fontSize: "clamp(3.5rem, 9vw, 8rem)",
+            fontWeight: 700,
             lineHeight: 1.05,
-            letterSpacing: "0.02em",
-            color: "var(--charcoal)",
+            letterSpacing: "-0.02em",
+            color: "var(--pink-primary)",
             maxWidth: "900px",
             marginBottom: "2.5rem",
+            textTransform: "uppercase",
           }}>
-            Your most beautiful day,<br />
-            <em>effortlessly</em> yours.
+            Your Most<br />
+            Beautiful Day
           </h1>
           <p style={{
             fontFamily: "var(--font-sans)",
@@ -88,15 +89,17 @@ export default function Home() {
           <div className="hero-buttons" style={{ display: "flex", gap: "1.5rem", justifyContent: "center" }}>
             <Link href="/book" style={{
               fontFamily: "var(--font-sans)",
-              fontSize: "0.7rem",
+              fontSize: "0.75rem",
+              fontWeight: 700,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "var(--charcoal)",
-              backgroundColor: "var(--pink)",
-              padding: "1rem 2.5rem",
+              color: "var(--white)",
+              backgroundColor: "var(--pink-primary)",
+              padding: "1.2rem 3rem",
               textDecoration: "none",
+              borderRadius: "50px",
             }}>
-              Book a Consultation
+              Book Now
             </Link>
             <Link href="/services" style={{
               fontFamily: "var(--font-sans)",
