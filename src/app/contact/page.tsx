@@ -103,6 +103,13 @@ export default function ContactPage() {
       </section>
 
       <style>{`
+        input::placeholder,
+        textarea::placeholder,
+        select::placeholder {
+          color: var(--mink);
+          opacity: 0.5;
+        }
+        
         @media (max-width: 768px) {
           .contact-grid { grid-template-columns: 1fr !important; gap: 3rem !important; padding: 4rem 1.25rem !important; }
           .pricing-grid { padding: 4rem 1.25rem !important; }
@@ -157,6 +164,7 @@ export default function ContactPage() {
                 style={inputStyle}
                 type="text"
                 name="firstName"
+                placeholder="First Name"
                 value={formData.firstName}
                 onChange={handleChange}
                 required
@@ -169,6 +177,7 @@ export default function ContactPage() {
                 style={inputStyle}
                 type="text"
                 name="lastName"
+                placeholder="Last Name"
                 value={formData.lastName}
                 onChange={handleChange}
                 required
@@ -182,6 +191,7 @@ export default function ContactPage() {
               style={inputStyle}
               type="email"
               name="email"
+              placeholder="your@email.com"
               value={formData.email}
               onChange={handleChange}
               required
@@ -213,6 +223,7 @@ export default function ContactPage() {
               style={inputStyle}
               type="date"
               name="date"
+              placeholder="MM/DD/YYYY"
               value={formData.date}
               onChange={handleChange}
               disabled={isSubmitting}
@@ -223,6 +234,7 @@ export default function ContactPage() {
             <textarea
               style={{ ...inputStyle, minHeight: "140px", resize: "vertical" }}
               name="message"
+              placeholder="Tell us about your event and vision…"
               value={formData.message}
               onChange={handleChange}
               required
@@ -377,7 +389,7 @@ const inputStyle: React.CSSProperties = {
   color: "var(--charcoal)",
   backgroundColor: "transparent",
   border: "none",
-  borderBottom: "1px solid var(--blush)",
+  borderBottom: "2px solid var(--mink)",
   padding: "0.6rem 0",
   outline: "none",
   transition: "border-color 0.2s",

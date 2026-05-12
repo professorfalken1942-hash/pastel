@@ -73,19 +73,6 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
-          <Link href="/book" style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.7rem",
-            fontWeight: 400,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "var(--charcoal)",
-            backgroundColor: "var(--pink)",
-            padding: "0.6rem 1.4rem",
-            textDecoration: "none",
-          }}>
-            Book Now
-          </Link>
         </nav>
 
         {/* Hamburger */}
@@ -97,24 +84,24 @@ export default function Nav() {
           <span style={{
             display: "block",
             width: "24px",
-            height: "1px",
-            backgroundColor: "var(--pink)",
+            height: "2px",
+            backgroundColor: "var(--pink-primary)",
             transition: "transform 0.3s",
             transform: open ? "rotate(45deg) translate(4px, 4px)" : "none",
           }} />
           <span style={{
             display: "block",
             width: "24px",
-            height: "1px",
-            backgroundColor: "var(--pink)",
+            height: "2px",
+            backgroundColor: "var(--pink-primary)",
             transition: "opacity 0.3s",
             opacity: open ? 0 : 1,
           }} />
           <span style={{
             display: "block",
             width: "24px",
-            height: "1px",
-            backgroundColor: "var(--pink)",
+            height: "2px",
+            backgroundColor: "var(--pink-primary)",
             transition: "transform 0.3s",
             transform: open ? "rotate(-45deg) translate(4px, -4px)" : "none",
           }} />
@@ -148,19 +135,6 @@ export default function Nav() {
             {link.label}
           </Link>
         ))}
-        <Link href="/book" onClick={() => setOpen(false)} style={{
-          marginTop: "1rem",
-          fontFamily: "var(--font-sans)",
-          fontSize: "0.7rem",
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "var(--charcoal)",
-          backgroundColor: "var(--pink)",
-          padding: "1rem 2.5rem",
-          textDecoration: "none",
-        }}>
-          Book Now
-        </Link>
       </div>
     </>
   );

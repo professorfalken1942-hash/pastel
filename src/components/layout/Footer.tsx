@@ -25,7 +25,7 @@ export default function Footer() {
       </span>
 
       <nav style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
-        {["/services", "/pricing", "/blog", "/contact", "/book"].map((href) => (
+        {["/services", "/pricing", "/blog", "/contact"].map((href) => (
           <Link key={href} href={href} style={{
             fontFamily: "var(--font-sans)",
             fontSize: "0.65rem",

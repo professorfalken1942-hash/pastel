@@ -29,7 +29,7 @@ export default function Home() {
             src={PHOTOS.hero}
             alt="Julianna Pastella bridal makeup"
             fill
-            style={{ objectFit: "cover", objectPosition: "center top" }}
+            style={{ objectFit: "cover", objectPosition: "center 15%" }}
             priority
             unoptimized
           />
@@ -59,15 +59,15 @@ export default function Home() {
             Wedding + Style
           </p>
           <h1 style={{
-            fontFamily: "var(--font-sans)",
+            fontFamily: "var(--font-serif)",
             fontSize: "clamp(3.5rem, 9vw, 8rem)",
-            fontWeight: 700,
+            fontWeight: 300,
             lineHeight: 1.05,
             letterSpacing: "-0.02em",
             color: "var(--pink-primary)",
             maxWidth: "900px",
             marginBottom: "2.5rem",
-            textTransform: "uppercase",
+            textTransform: "lowercase",
           }}>
             Your Most<br />
             Beautiful Day
@@ -87,20 +87,6 @@ export default function Home() {
             Weddings, fashion, and special events — Syracuse, NY.
           </p>
           <div className="hero-buttons" style={{ display: "flex", gap: "1.5rem", justifyContent: "center" }}>
-            <Link href="/book" style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "var(--white)",
-              backgroundColor: "var(--pink-primary)",
-              padding: "1.2rem 3rem",
-              textDecoration: "none",
-              borderRadius: "50px",
-            }}>
-              Book Now
-            </Link>
             <Link href="/services" style={{
               fontFamily: "var(--font-sans)",
               fontSize: "0.7rem",
@@ -111,6 +97,7 @@ export default function Home() {
               padding: "1rem 2.5rem",
               textDecoration: "none",
               backgroundColor: "rgba(250,247,242,0.6)",
+              borderRadius: "50px",
             }}>
               View Services
             </Link>
@@ -295,46 +282,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{
-        padding: "8rem 3rem",
-        textAlign: "center",
-        backgroundColor: "var(--pink)",
-        color: "var(--charcoal)",
-      }}>
-        <h2 style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "clamp(2rem, 4vw, 3.5rem)",
-          fontWeight: 300,
-          marginBottom: "1.5rem",
-          color: "var(--charcoal)",
-        }}>
-          Ready to begin?
-        </h2>
-        <p style={{
-          fontFamily: "var(--font-sans)",
-          fontSize: "0.8rem",
-          fontWeight: 300,
-          letterSpacing: "0.08em",
-          color: "var(--charcoal)",
-          marginBottom: "3rem",
-          opacity: 0.7,
-        }}>
-          Limited bookings available. Reserve your date early.
-        </p>
-        <Link href="/book" style={{
-          fontFamily: "var(--font-sans)",
-          fontSize: "0.7rem",
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "var(--charcoal)",
-          backgroundColor: "var(--cream)",
-          padding: "1rem 2.5rem",
-          textDecoration: "none",
-        }}>
-          Check Availability
-        </Link>
-      </section>
+
     </>
   );
 }
