@@ -6,7 +6,7 @@ const PHOTOS = {
   about:   "https://lh3.googleusercontent.com/pw/AP1GczMVJJknwRn2fpX35QXVenHdds6y2HozTg2GB_bc5GljuhMXnw6zc8m4JDZC9cE7lhxzwGTiCm88Dy0-DI4TYGo_LppdJaol5bZNZlqXe8nGDuVENUM=w900-h1200",
   gallery: [
     "https://lh3.googleusercontent.com/pw/AP1GczMCVpxqDytS1Jw29dAQvNPRLjr-kNzeCCCM020J3wjKAb4wWJC4c11Ij1AqFV25hcFyHqFnsNm7ZNgqJIPCOzOrR8ZA2xVBAQVsYUKKQfDB38qb8UA=w900-h1200",
-    "https://lh3.googleusercontent.com/pw/AP1GczMF7qQUBzApKLkzJ-6lWsEsJVe2-APYoOiYGcLVPmj-kRdSR5RW7QSMhVfuHsfzVEs6ICt50lY7BOxAByDmFP8z015mzeRj35XbnyfG1cI82wu1N88=w900-h1200",
+    "https://lh3.googleusercontent.com/p/AF1QipP3TcaPgaDanRk7hlzMBfdjZj7rsFNFO7L4M-6u=s680-w680-h510-rw",
     "https://lh3.googleusercontent.com/pw/AP1GczMRnJ0CBfgN-gz7iOFbo3NOOEYL_dAdPXujq1AL6GAq-_PWvePXjJn9NL7ZlwvCzogKlTMSdanRS0GNn82Lm8c5-JQlyUuGt6ekaVQS8sDzHwmhv-Q=w900-h1200",
   ],
 };

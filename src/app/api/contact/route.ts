@@ -1,10 +1,12 @@
-import { Resend } from 'resend';
+import sgMail from '@sendgrid/mail';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+if (process.env.SENDGRID_API_KEY) {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+}
 
 interface ContactFormData {
   firstName: string;
@@ -17,7 +19,7 @@ interface ContactFormData {
 
 export async function POST(request: NextRequest) {
   try {
-    if (!resend) {
+    if (!process.env.SENDGRID_API_KEY) {
       return NextResponse.json(
         { error: 'Email service not configured' },
         { status: 503 }
@@ -36,10 +38,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const adminEmail = process.env.ADMIN_EMAIL || 'julianna6380@gmail.com';
+
     // Send email to Julianna
-    const adminEmailResult = await resend.emails.send({
-      from: 'Pastel Inquiries <onboarding@resend.dev>', // Replace with your verified email
-      to: process.env.ADMIN_EMAIL || 'julianna@pastelstyle.art',
+    await sgMail.send({
+      to: adminEmail,
+      from: process.env.SENDGRID_FROM_EMAIL || 'noreply@pastelmakeupandstyle.com',
       subject: `New Contact Form Submission from ${firstName} ${lastName}`,
       html: `
         <div style="font-family: system-ui, sans-serif; max-width: 600px;">
@@ -60,18 +64,10 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    if (adminEmailResult.error) {
-      console.error('Admin email send failed:', adminEmailResult.error);
-      return NextResponse.json(
-        { error: 'Failed to send email' },
-        { status: 500 }
-      );
-    }
-
     // Send confirmation email to user
-    const userEmailResult = await resend.emails.send({
-      from: 'Pastel Makeup & Style <onboarding@resend.dev>', // Replace with your verified email
+    await sgMail.send({
       to: email,
+      from: process.env.SENDGRID_FROM_EMAIL || 'noreply@pastelmakeupandstyle.com',
       subject: 'We received your inquiry — Pastel Makeup & Style',
       html: `
         <div style="font-family: system-ui, sans-serif; max-width: 600px;">
@@ -89,12 +85,10 @@ export async function POST(request: NextRequest) {
           <p style="font-size: 0.85rem; color: #999;">This is an automated confirmation. Please do not reply to this email.</p>
         </div>
       `,
-    });
-
-    if (userEmailResult.error) {
-      console.error('User confirmation email failed:', userEmailResult.error);
+    }).catch((err) => {
+      console.error('User confirmation email failed:', err);
       // Don't fail the entire request if confirmation email fails
-    }
+    });
 
     return NextResponse.json(
       { success: true, message: 'Email sent successfully' },
