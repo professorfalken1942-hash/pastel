@@ -7,12 +7,12 @@ export default function Footer() {
   const [instagramHover, setInstagramHover] = useState(false);
   return (
     <footer style={{
-      borderTop: "1px solid #e8d5c4",
+      borderTop: "1px solid var(--pink)",
       padding: "4rem 3rem",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      backgroundColor: "var(--cream)",
+      backgroundColor: "var(--pink)",
     }}>
       <span style={{
         fontFamily: "var(--font-serif)",
@@ -20,6 +20,7 @@ export default function Footer() {
         fontWeight: 300,
         letterSpacing: "0.15em",
         textTransform: "uppercase",
+        color: "var(--charcoal)",
       }}>
         Pastel
       </span>
@@ -31,7 +32,7 @@ export default function Footer() {
             fontSize: "0.65rem",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
-            color: "var(--mink)",
+            color: "var(--charcoal)",
             textDecoration: "none",
           }}>
             {href.replace("/", "")}
@@ -50,7 +51,7 @@ export default function Footer() {
             justifyContent: "center",
             width: "20px",
             height: "20px",
-            color: "var(--mink)",
+            color: "var(--charcoal)",
             textDecoration: "none",
             opacity: instagramHover ? 0.6 : 1,
             transition: "opacity 0.2s",
@@ -80,7 +81,7 @@ export default function Footer() {
         fontFamily: "var(--font-sans)",
         fontSize: "0.65rem",
         letterSpacing: "0.1em",
-        color: "var(--mink)",
+        color: "var(--charcoal)",
       }}>
         © {new Date().getFullYear()} Pastel Makeup and Style
       </span>

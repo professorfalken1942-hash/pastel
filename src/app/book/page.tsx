@@ -1,12 +1,22 @@
+'use client';
+
 import type { Metadata } from "next";
+import { useEffect } from "react";
 
-
-export const metadata: Metadata = {
-  title: "Book | Pastel Makeup and Style",
-  description: "Book a consultation or check availability with Pastel Makeup and Style.",
-};
+// Server-side metadata export doesn't work in client components
+// This will be handled via layout metadata
 
 export default function BookPage() {
+  useEffect(() => {
+    // Load HoneyBook widget script
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = "https://widget.honeybook.com/assets_users_production/websiteplacements/placement-controller.min.js";
+    script.setAttribute("data-pid", "68c33da0bc9cf000219cc809");
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <>
       {/* Header */}
@@ -50,23 +60,19 @@ export default function BookPage() {
         </p>
       </section>
 
-      {/* HoneyBook embed */}
+      {/* HoneyBook widget embed */}
       <section style={{
         maxWidth: "960px",
         margin: "0 auto",
         padding: "5rem 3rem 10rem",
       }}>
-        <iframe
-          src="https://1757625758.hbportal.co/public/68c33e10dc84ad00010b83ad"
-          width="100%"
-          height="900"
-          frameBorder="0"
-          style={{
-            border: "none",
-            display: "block",
-          }}
-          title="Book with Julianna — Pastel Makeup and Style"
-          allowFullScreen
+        <div className="hb-p-68c33da0bc9cf000219cc809-1"></div>
+        <img 
+          height="1" 
+          width="1" 
+          style={{ display: "none" }} 
+          src="https://www.honeybook.com/p.png?pid=68c33da0bc9cf000219cc809"
+          alt=""
         />
       </section>
     </>

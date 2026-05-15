@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       subject: `New Contact Form Submission from ${firstName} ${lastName}`,
       html: `
         <div style="font-family: system-ui, sans-serif; max-width: 600px;">
-          <h2 style="color: rgb(255, 174, 215);">New Contact Inquiry</h2>
+          <h2 style="color: #ffaed7;">New Contact Inquiry</h2>
           
           <p><strong>Name:</strong> ${firstName} ${lastName}</p>
           <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>

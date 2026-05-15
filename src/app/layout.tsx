@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   description: "Luxury wedding makeup artist and bridal stylist in Syracuse, NY. Specializing in wedding beauty, editorial makeup, TV/film, and wardrobe styling. Available for travel.",
   keywords: "wedding makeup Syracuse, bridal makeup artist, makeup artist near me, wedding beauty",
   metadataBase: new URL("https://pastelmakeupandstyle.com"),
+  icons: {
+    icon: "/favicon.gif",
+  },
   openGraph: {
     title: "Pastel Makeup and Style | Wedding Makeup Artist",
     description: "Luxury wedding makeup artist and bridal stylist in Syracuse, NY. Specializing in wedding beauty, editorial makeup, TV/film, and wardrobe styling.",

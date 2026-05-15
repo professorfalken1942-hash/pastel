@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { client } from "@/sanity/client";
 import { postsQuery } from "@/sanity/queries";
 
@@ -41,6 +42,32 @@ export default async function BlogPage() {
         }}>
           Journal
         </h1>
+      </section>
+
+      {/* Featured image */}
+      <section style={{
+        maxWidth: "1100px",
+        margin: "0 auto",
+        padding: "0 3rem 4rem",
+        display: "flex",
+        justifyContent: "center",
+      }}>
+        <div style={{
+          position: "relative",
+          width: "80%",
+          aspectRatio: "16/9",
+          overflow: "hidden",
+          borderRadius: "2px",
+        }}>
+          <Image
+            src="/journal-feature.jpg"
+            alt="Pastel Journal"
+            fill
+            style={{ objectFit: "cover" }}
+            priority
+            unoptimized
+          />
+        </div>
       </section>
 
       {/* Posts */}

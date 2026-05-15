@@ -24,7 +24,7 @@ export default function LogoSplash() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "var(--cream)",
+        backgroundColor: "var(--pink)",
         opacity: show ? 1 : 0,
         visibility: show ? "visible" : "hidden",
         transition: "opacity 0.8s ease-out, visibility 0.8s ease-out",
@@ -33,7 +33,7 @@ export default function LogoSplash() {
     >
       <div style={{ textAlign: "center" }}>
         <Image
-          src="/pastel-logo.jpg"
+          src="/pastel-logo.png"
           alt="Pastel"
           width={200}
           height={200}

@@ -46,7 +46,7 @@ export default function Nav() {
           textDecoration: "none",
         }}>
           <Image
-            src="/pastel-logo.jpg"
+            src="/pastel-logo.png"
             alt="Pastel"
             width={40}
             height={40}
