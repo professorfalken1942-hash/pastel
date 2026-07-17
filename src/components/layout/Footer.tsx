@@ -38,6 +38,16 @@ export default function Footer() {
             {href.replace("/", "")}
           </Link>
         ))}
+        <a href="mailto:julianna6380@gmail.com" style={{
+          fontFamily: "var(--font-sans)",
+          fontSize: "0.65rem",
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
+          color: "var(--charcoal)",
+          textDecoration: "none",
+        }}>
+          contact
+        </a>
         
         {/* Instagram */}
         <a
