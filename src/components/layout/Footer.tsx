@@ -38,7 +38,7 @@ export default function Footer() {
             {href.replace("/", "")}
           </Link>
         ))}
-        <a href="mailto:julianna6380@gmail.com" style={{
+        <a href="mailto:pastelmakeupandstyle@gmail.com" style={{
           fontFamily: "var(--font-sans)",
           fontSize: "0.65rem",
           letterSpacing: "0.15em",

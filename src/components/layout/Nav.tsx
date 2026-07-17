@@ -8,7 +8,7 @@ const links = [
   { href: "/services", label: "Services" },
   { href: "/pricing", label: "Pricing" },
   { href: "/blog", label: "Journal" },
-  { href: "mailto:julianna6380@gmail.com", label: "Contact" },
+  { href: "mailto:pastelmakeupandstyle@gmail.com", label: "Contact" },
 ];
 
 export default function Nav() {
