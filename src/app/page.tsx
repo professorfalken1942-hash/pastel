@@ -1,288 +1,303 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const PHOTOS = {
-  hero:    "/hero-banner.jpg",
-  about:   "https://lh3.googleusercontent.com/pw/AP1GczMVJJknwRn2fpX35QXVenHdds6y2HozTg2GB_bc5GljuhMXnw6zc8m4JDZC9cE7lhxzwGTiCm88Dy0-DI4TYGo_LppdJaol5bZNZlqXe8nGDuVENUM=w900-h1200",
-  gallery: [
-    "https://lh3.googleusercontent.com/pw/AP1GczMCVpxqDytS1Jw29dAQvNPRLjr-kNzeCCCM020J3wjKAb4wWJC4c11Ij1AqFV25hcFyHqFnsNm7ZNgqJIPCOzOrR8ZA2xVBAQVsYUKKQfDB38qb8UA=w900-h1200",
-    "https://lh3.googleusercontent.com/p/AF1QipP3TcaPgaDanRk7hlzMBfdjZj7rsFNFO7L4M-6u=s680-w680-h510-rw",
-    "https://lh3.googleusercontent.com/pw/AP1GczMRnJ0CBfgN-gz7iOFbo3NOOEYL_dAdPXujq1AL6GAq-_PWvePXjJn9NL7ZlwvCzogKlTMSdanRS0GNn82Lm8c5-JQlyUuGt6ekaVQS8sDzHwmhv-Q=w900-h1200",
-  ],
+  hero: "/hero-banner.jpg",
 };
 
 export default function Home() {
+  const [bookHover, setBookHover] = useState(false);
+
   return (
     <>
       {/* Hero — full bleed image with overlay text */}
-      <section style={{
-        position: "relative",
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-      }}>
+      <section
+        style={{
+          position: "relative",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
+        }}
+      >
         {/* Background image */}
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
           <Image
             src={PHOTOS.hero}
-            alt="Julianna Pastella bridal makeup"
+            alt="Pastel editorial wedding beauty"
             fill
             style={{ objectFit: "cover", objectPosition: "center 15%" }}
             priority
             unoptimized
           />
           {/* Soft overlay */}
-          <div style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(to bottom, rgba(250,247,242,0.35) 0%, rgba(250,247,242,0.65) 100%)",
-          }} />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(to bottom, rgba(250,247,242,0.45) 0%, rgba(250,247,242,0.75) 100%)",
+            }}
+          />
         </div>
 
         {/* Text */}
-        <div style={{
-          position: "relative",
-          zIndex: 1,
-          textAlign: "center",
-          padding: "8rem 2rem 4rem",
-        }}>
-          <p style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.65rem",
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            color: "var(--charcoal)",
-            marginBottom: "2rem",
-          }}>
-            Wedding + Style
-          </p>
-          <h1 style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "clamp(3.5rem, 9vw, 8rem)",
-            fontWeight: 300,
-            lineHeight: 1.05,
-            letterSpacing: "-0.02em",
-            color: "var(--charcoal)",
-            maxWidth: "900px",
-            marginBottom: "2.5rem",
-            textTransform: "lowercase",
-          }}>
-            Your Most<br />
-            Beautiful Day
-          </h1>
-          <p style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.85rem",
-            fontWeight: 300,
-            letterSpacing: "0.08em",
-            color: "var(--charcoal)",
-            maxWidth: "480px",
-            lineHeight: 1.8,
-            marginBottom: "3rem",
-            margin: "0 auto 3rem",
-          }}>
-            A beauty and styling brand by Julianna Pastella.<br />
-            Weddings, fashion, and special events — Syracuse, NY.
-          </p>
-          <div className="hero-buttons" style={{ display: "flex", gap: "1.5rem", justifyContent: "center" }}>
-            <Link href="/services" style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "0.7rem",
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
+        <div
+          style={{
+            position: "relative",
+            zIndex: 1,
+            textAlign: "center",
+            padding: "8rem 2rem 4rem",
+            maxWidth: "800px",
+          }}
+        >
+          <h1
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "clamp(2.5rem, 8vw, 4rem)",
+              fontWeight: 300,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.1,
               color: "var(--charcoal)",
-              border: "none",
-              padding: "1rem 2.5rem",
-              textDecoration: "none",
-              backgroundColor: "var(--pink)",
-              borderRadius: "50px",
-            }}>
-              View Services
-            </Link>
+              marginBottom: "2rem",
+            }}
+          >
+            Hair, Makeup, Style
+          </h1>
+          <p
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: "1rem",
+              fontWeight: 300,
+              color: "var(--charcoal)",
+              lineHeight: 1.6,
+            }}
+          >
+            We cherish visions. And the most dreamiest of ones.
+          </p>
+        </div>
+      </section>
+
+      {/* About Jules Section */}
+      <section
+        style={{
+          padding: "6rem 2rem",
+          maxWidth: "900px",
+          margin: "0 auto",
+        }}
+      >
+        <div style={{ borderBottom: "1px solid #e8d5c4", paddingBottom: "1rem", marginBottom: "3rem" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "2rem",
+              fontWeight: 300,
+              color: "var(--charcoal)",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Meet Jules
+          </h2>
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "start" }}>
+          {/* About text */}
+          <div>
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: "0.95rem",
+                lineHeight: 1.8,
+                color: "var(--charcoal)",
+                marginBottom: "1.5rem",
+              }}
+            >
+              I'm an artist of a few trades. A soul led by instinct, weaving creativity through every era of life.
+              I've shaped a world where dreams meet detail, a space where brides feel like visions, teams move like
+              rhythm, and business breathes like art.
+            </p>
+
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: "0.95rem",
+                lineHeight: 1.8,
+                color: "var(--charcoal)",
+                marginBottom: "1.5rem",
+              }}
+            >
+              It began with fabric almost 20 years ago, styling women in stories woven through their clothes for
+              everything from everyday moments to the extraordinary. The flow led to the runways, the shoots, and
+              somewhere between the slinging of dresses and flashing lights, makeup artistry found me.
+            </p>
+
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: "0.95rem",
+                lineHeight: 1.8,
+                color: "var(--charcoal)",
+              }}
+            >
+              The extension of my creative voice stays editorial—soft, refined, and always intentional.
+            </p>
+          </div>
+
+          {/* Right column */}
+          <div>
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: "0.95rem",
+                lineHeight: 1.8,
+                color: "var(--charcoal)",
+                marginBottom: "1.5rem",
+              }}
+            >
+              With the magic of wedding mornings, to the hushes on sets, I've poured myself into the creative
+              direction of making things beautiful, I once sketched in the margins of notebooks. Each project is a
+              brushstroke on the canvas of this career I've built.
+            </p>
+
+            <p
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "1.1rem",
+                fontWeight: 300,
+                lineHeight: 1.8,
+                color: "var(--charcoal)",
+                fontStyle: "italic",
+              }}
+            >
+              But now, a new chapter unfolds.
+              <br />
+              Gentle and fierce. Unknown, but deeply felt.
+              <br />
+              I am leaning into the wild wonder of motherhood—
+              <br />
+              another creation, perhaps the most sacred of all.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div style={{ height: "1px", backgroundColor: "var(--blush)", margin: "0 3rem" }} />
-
-      {/* Gallery strip — 3 photos */}
-      <section style={{ padding: "6rem 3rem" }}>
-        <p style={{
-          fontFamily: "var(--font-sans)",
-          fontSize: "0.65rem",
-          letterSpacing: "0.3em",
-          textTransform: "uppercase",
-          color: "var(--mink)",
-          marginBottom: "3rem",
-          textAlign: "center",
-        }}>
-          Portfolio
-        </p>
-        <div className="gallery-grid" style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "1rem",
-          maxWidth: "1100px",
-          margin: "0 auto",
-        }}>
-          {PHOTOS.gallery.map((src, i) => (
-            <div key={i} style={{
-              position: "relative",
-              aspectRatio: "3/4",
-              overflow: "hidden",
-            }}>
-              <Image
-                src={src}
-                alt={`Julianna Pastella portfolio ${i + 1}`}
-                fill
-                style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
-                unoptimized
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div style={{ height: "1px", backgroundColor: "var(--blush)", margin: "0 3rem" }} />
-
-      {/* Services Preview */}
-      <section style={{ padding: "8rem 3rem" }}>
-        <p style={{
-          fontFamily: "var(--font-sans)",
-          fontSize: "0.65rem",
-          letterSpacing: "0.3em",
-          textTransform: "uppercase",
-          color: "var(--mink)",
-          marginBottom: "1rem",
-          textAlign: "center",
-        }}>
-          Services
-        </p>
-        <h2 style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "clamp(2rem, 4vw, 3.5rem)",
-          fontWeight: 300,
-          textAlign: "center",
-          marginBottom: "5rem",
-        }}>
-          What we offer
-        </h2>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-          gap: "3rem",
-          maxWidth: "1100px",
-          margin: "0 auto",
-        }}>
-          {[
-            { title: "Wedding Beauty", desc: "Classic to couture — full wedding day artistry honoring your individuality." },
-            { title: "Wedding Party", desc: "Cohesive, beautiful looks for your entire party from prep to last dance." },
-            { title: "Fashion & Editorial", desc: "Striking runway and editorial designs for shoots, campaigns, and fashion events." },
-            { title: "TV & Film", desc: "Professional makeup for television, film, and on-camera productions." },
-            { title: "Wardrobe & Set Styling", desc: "Complete wardrobe curation and set styling for productions and events." },
-            { title: "Special Events", desc: "Tailored beauty solutions for galas, corporate events, and milestone moments." },
-          ].map((s) => (
-            <div key={s.title} style={{ borderTop: "1px solid var(--blush)", paddingTop: "2rem" }}>
-              <h3 style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "1.4rem",
-                fontWeight: 300,
-                marginBottom: "1rem",
-              }}>
-                {s.title}
-              </h3>
-              <p style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: "0.8rem",
-                fontWeight: 300,
-                lineHeight: 1.8,
-                color: "var(--mink)",
-              }}>
-                {s.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* About */}
-      <section className="about-grid" style={{
-        padding: "8rem 3rem",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "6rem",
-        maxWidth: "1100px",
-        margin: "0 auto",
-        alignItems: "center",
-      }}>
-        <style>{`
-          @media (max-width: 768px) {
-            .about-grid { grid-template-columns: 1fr !important; gap: 3rem !important; padding: 4rem 1.25rem !important; }
-            .hero-buttons { flex-direction: column !important; align-items: center !important; }
-            .gallery-grid { grid-template-columns: 1fr !important; }
-          }
-        `}</style>
-        <div>
-          <p style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.65rem",
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            color: "var(--mink)",
-            marginBottom: "1rem",
-          }}>
-            About
-          </p>
-          <h2 style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "clamp(2rem, 3.5vw, 3rem)",
-            fontWeight: 300,
-            lineHeight: 1.2,
-            marginBottom: "2rem",
-          }}>
-            Beauty rooted in<br /><em>individuality</em>
+      {/* Services Section */}
+      <section
+        style={{
+          padding: "6rem 2rem",
+          backgroundColor: "var(--canvas)",
+          borderTop: "1px solid #e8d5c4",
+          borderBottom: "1px solid #e8d5c4",
+        }}
+      >
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "2rem",
+              fontWeight: 300,
+              color: "var(--charcoal)",
+              letterSpacing: "-0.01em",
+              marginBottom: "3rem",
+            }}
+          >
+            Our Offering
           </h2>
-          <p style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.82rem",
-            fontWeight: 300,
-            lineHeight: 1.9,
-            color: "var(--mink)",
-            marginBottom: "1.5rem",
-          }}>
-            Pastel Makeup and Style is a unique beauty and styling brand established by Julianna Pastella in Syracuse, New York. Our mission is to honor individuality and creativity — offering everything from classic wedding beauty to striking runway designs.
+
+          <p
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: "0.95rem",
+              lineHeight: 1.8,
+              color: "var(--charcoal)",
+              marginBottom: "3rem",
+              maxWidth: "700px",
+            }}
+          >
+            As a leading editorial wedding team throughout New York, we offer an on-location boutique experience for
+            wedding hair, makeup, and style for the best couples. Our makeup artistry is focused on soft, intentional
+            finishes that photograph beautifully, hair styling that feels effortlessly like you, and a mutual trust,
+            ensuring your entire look feels cohesive and personal.
           </p>
-          <p style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.82rem",
-            fontWeight: 300,
-            lineHeight: 1.9,
-            color: "var(--mink)",
-          }}>
-            We also specialize in wardrobe and set styling, makeup for TV and film, and tailored beauty solutions for events.
+
+          <p
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: "0.95rem",
+              lineHeight: 1.8,
+              color: "var(--charcoal)",
+            }}
+          >
+            We have been honored to see these stories unfold in the cozy Adirondack mountains, the rolling countryside
+            of the Finger Lakes, the carefree Thousand Islands, and, of course, in our city-chic hometown, Syracuse,
+            New York, where our private downtown loft studio is located.
           </p>
-        </div>
-        {/* About photo */}
-        <div style={{
-          position: "relative",
-          aspectRatio: "3/4",
-          overflow: "hidden",
-        }}>
-          <Image
-            src={PHOTOS.about}
-            alt="Julianna Pastella"
-            fill
-            style={{ objectFit: "cover", objectPosition: "center top" }}
-            unoptimized
-          />
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section
+        style={{
+          padding: "6rem 2rem",
+          textAlign: "center",
+          backgroundColor: "var(--white)",
+        }}
+      >
+        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+          <p
+            style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "1.5rem",
+              fontWeight: 300,
+              color: "var(--charcoal)",
+              marginBottom: "2rem",
+            }}
+          >
+            We can't wait to hear your story.
+          </p>
 
+          <a
+            href="https://1757625758.hbportal.co/public/68c33e10dc84ad00010b83ad"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              fontFamily: "var(--font-sans)",
+              fontSize: "0.8rem",
+              fontWeight: 500,
+              color: "var(--charcoal)",
+              backgroundColor: bookHover ? "rgba(255, 174, 215, 0.8)" : "var(--pink)",
+              border: "none",
+              padding: "0.75rem 2rem",
+              cursor: "pointer",
+              textDecoration: "none",
+              transition: "background-color 0.2s",
+            }}
+            onMouseEnter={() => setBookHover(true)}
+            onMouseLeave={() => setBookHover(false)}
+          >
+            Book
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer
+        style={{
+          borderTop: "1px solid var(--pink)",
+          padding: "2rem",
+          textAlign: "center",
+          backgroundColor: "var(--cream)",
+          fontSize: "0.8rem",
+          color: "var(--charcoal)",
+        }}
+      >
+        <p>© 2026 Pastel. Syracuse, New York.</p>
+      </footer>
     </>
   );
 }
