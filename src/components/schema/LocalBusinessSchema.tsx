@@ -1,22 +1,22 @@
+import { absoluteUrl, contactEmail, defaultOgImage, siteName, siteUrl } from "@/lib/seo";
+
 export default function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://pastelmakeupandstyle.com",
-    name: "Pastel Makeup and Style",
-    image: "https://lh3.googleusercontent.com/pw/AP1GczMSzDJ_8PLDhFF32s98AefhuqK1a6YSw1X9rfvxo7jBjzU4MF5598Up_-FX4aLkJkCmVTZwSOw7CAaTSiGFF7jdcz9RW7oKJ3_DPH7CNS-UlnUS2Bw=w1400-h1000",
-    description: "Luxury wedding makeup artist and stylist based in Syracuse, NY. Offering bridal makeup, editorial, TV/film makeup, and wardrobe styling services.",
-    telephone: "+1-315-XXX-XXXX", // Add actual phone
-    email: "julianna6380@gmail.com",
+    "@type": ["LocalBusiness", "BeautySalon"],
+    "@id": `${siteUrl}/#business`,
+    name: siteName,
+    image: absoluteUrl(defaultOgImage),
+    logo: absoluteUrl("/pastel-logo.png"),
+    description: "Luxury wedding makeup artist and stylist based in Syracuse, NY. Offering bridal makeup, editorial, TV/film makeup, wardrobe styling, and special event beauty services.",
+    email: contactEmail,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Syracuse",
       addressLocality: "Syracuse",
       addressRegion: "NY",
-      postalCode: "13202", // General ZIP for Syracuse
       addressCountry: "US",
     },
-    url: "https://pastelmakeupandstyle.com",
+    url: siteUrl,
     priceRange: "$$$",
     areaServed: [
       {
@@ -41,12 +41,27 @@ export default function LocalBusinessSchema() {
       "Special Event Makeup",
     ],
     sameAs: ["https://instagram.com/pastelmakeupandstyle"],
-    contact: {
+    contactPoint: {
       "@type": "ContactPoint",
-      contactType: "Customer Service",
-      email: "julianna6380@gmail.com",
-      url: "https://pastelmakeupandstyle.com/contact",
+      contactType: "Bookings",
+      email: contactEmail,
+      url: absoluteUrl("/book"),
     },
+    makesOffer: [
+      "Wedding makeup",
+      "Bridal hair and makeup",
+      "Editorial makeup",
+      "TV and film makeup",
+      "Wardrobe styling",
+      "Special event makeup",
+    ].map((name) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name,
+        areaServed: "Syracuse, NY",
+      },
+    })),
   };
 
   return (

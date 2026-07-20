@@ -2,10 +2,20 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { client } from "@/sanity/client";
 import { postsQuery } from "@/sanity/queries";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Journal | Pastel Makeup and Style",
-  description: "Beauty tips, inspiration, and behind-the-scenes from Pastel Makeup and Style.",
+  title: "Wedding Beauty Journal",
+  description: "Wedding beauty tips, bridal makeup inspiration, styling notes, and behind-the-scenes stories from Pastel Makeup and Style in Syracuse, NY.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Wedding Beauty Journal",
+    description: "Bridal makeup inspiration, beauty tips, styling notes, and behind-the-scenes from Pastel Makeup and Style.",
+    url: absoluteUrl("/blog"),
+    images: [absoluteUrl("/journal-feature.jpg")],
+  },
 };
 
 export const revalidate = 60;

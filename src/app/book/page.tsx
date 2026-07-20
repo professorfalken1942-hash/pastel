@@ -1,10 +1,6 @@
 'use client';
 
-import type { Metadata } from "next";
 import { useEffect } from "react";
-
-// Server-side metadata export doesn't work in client components
-// This will be handled via layout metadata
 
 export default function BookPage() {
   useEffect(() => {

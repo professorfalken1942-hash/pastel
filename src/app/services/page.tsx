@@ -1,10 +1,4 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Services | Pastel Makeup and Style",
-  description: "Wedding beauty, fashion, editorial, TV & film, wardrobe styling, and special events — by Julianna Pastella in Syracuse, NY.",
-};
 
 const services = [
   {

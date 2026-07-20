@@ -1,28 +1,39 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { client } from "@/sanity/client";
 import { servicesQuery } from "@/sanity/queries";
-
-export const metadata: Metadata = {
-  title: "Pricing | Pastel Makeup and Style",
-  description: "Transparent pricing for wedding, editorial, event, and production beauty services by Pastel Makeup and Style.",
-};
+import PricingCalculator from "@/components/pricing/PricingCalculator";
 
 export const revalidate = 60;
 
 const CATEGORIES = ["Weddings", "Fashion & Editorial", "TV & Film", "Special Events"];
 
+type PricingItem = {
+  _id?: string;
+  title?: string;
+  service?: string;
+  category?: string;
+  description?: string;
+  price?: string;
+  note?: string;
+};
+
+type PricingTier = {
+  category: string;
+  description?: string;
+  items: PricingItem[];
+};
+
 export default async function PricingPage() {
-  const services = await client.fetch(servicesQuery).catch(() => []);
+  const services = await client.fetch<PricingItem[]>(servicesQuery).catch(() => []);
 
   // Group by category
-  const grouped = CATEGORIES.map((cat) => ({
+  const grouped: PricingTier[] = CATEGORIES.map((cat) => ({
     category: cat,
-    items: services.filter((s: any) => s.category === cat),
+    items: services.filter((service) => service.category === cat),
   })).filter((g) => g.items.length > 0);
 
   // Fallback placeholder if Sanity is empty
-  const tiers = grouped.length > 0 ? grouped : [
+  const tiers: PricingTier[] = grouped.length > 0 ? grouped : [
     {
       category: "Wedding Day Beauty",
       items: [
@@ -119,8 +130,10 @@ export default async function PricingPage() {
         </p>
       </section>
 
+      <PricingCalculator />
+
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "6rem 3rem" }}>
-        {tiers.map((tier: any, i: number) => (
+        {tiers.map((tier, i) => (
           <div key={tier.category} style={{ marginBottom: i < tiers.length - 1 ? "5rem" : 0 }}>
             <p style={{
               fontFamily: "var(--font-sans)",
@@ -143,8 +156,8 @@ export default async function PricingPage() {
                 {tier.description}
               </p>
             )}
-            {tier.items.map((item: any, j: number) => (
-              <div key={item.title || item.service} style={{
+            {tier.items.map((item, j) => (
+              <div key={item._id ?? item.title ?? item.service} style={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "baseline",

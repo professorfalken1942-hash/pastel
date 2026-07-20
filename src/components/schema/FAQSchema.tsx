@@ -40,7 +40,7 @@ export default function FAQSchema() {
         name: "How do I book a consultation?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You can use our online contact form at pastelmakeupandstyle.com/contact or book directly through our HoneyBook portal at pastelmakeupandstyle.com/book.",
+          text: "You can book a consultation through the Pastel Makeup and Style booking page at pastelmakeupandstyle.com/book.",
         },
       },
     ],

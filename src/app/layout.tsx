@@ -5,34 +5,65 @@ import Footer from "@/components/layout/Footer";
 import LogoSplash from "@/components/layout/LogoSplash";
 import LocalBusinessSchema from "@/components/schema/LocalBusinessSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
+import { absoluteUrl, defaultOgImage, siteName, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Pastel Makeup and Style | Wedding Makeup Artist Syracuse NY",
-  description: "Luxury wedding makeup artist and bridal stylist in Syracuse, NY. Specializing in wedding beauty, editorial makeup, TV/film, and wardrobe styling. Available for travel.",
-  keywords: "wedding makeup Syracuse, bridal makeup artist, makeup artist near me, wedding beauty",
-  metadataBase: new URL("https://pastelmakeupandstyle.com"),
+  title: {
+    default: "Pastel Makeup and Style | Wedding Makeup Artist Syracuse NY",
+    template: "%s | Pastel Makeup and Style",
+  },
+  description: "Luxury wedding makeup artist and bridal stylist in Syracuse, NY. Wedding beauty, editorial makeup, TV/film, wardrobe styling, and special event makeup.",
+  keywords: [
+    "wedding makeup Syracuse NY",
+    "bridal makeup artist Syracuse",
+    "Syracuse wedding makeup artist",
+    "bridal hair and makeup Syracuse",
+    "editorial makeup artist New York",
+    "wardrobe stylist Syracuse",
+  ],
+  applicationName: siteName,
+  authors: [{ name: "Julianna Pastella" }],
+  creator: "Julianna Pastella",
+  publisher: siteName,
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: "/favicon.gif",
   },
   openGraph: {
-    title: "Pastel Makeup and Style | Wedding Makeup Artist",
-    description: "Luxury wedding makeup artist and bridal stylist in Syracuse, NY. Specializing in wedding beauty, editorial makeup, TV/film, and wardrobe styling.",
-    url: "https://pastelmakeupandstyle.com",
-    siteName: "Pastel Makeup and Style",
+    title: "Pastel Makeup and Style | Wedding Makeup Artist Syracuse NY",
+    description: "Luxury wedding makeup artist and bridal stylist in Syracuse, NY for weddings, editorial, TV/film, and special events.",
+    url: siteUrl,
+    siteName,
+    locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://lh3.googleusercontent.com/pw/AP1GczMSzDJ_8PLDhFF32s98AefhuqK1a6YSw1X9rfvxo7jBjzU4MF5598Up_-FX4aLkJkCmVTZwSOw7CAaTSiGFF7jdcz9RW7oKJ3_DPH7CNS-UlnUS2Bw=w1400-h1000",
-        width: 1400,
-        height: 1000,
+        url: absoluteUrl(defaultOgImage),
+        width: 1200,
+        height: 630,
         alt: "Pastel Makeup and Style - Wedding Makeup Artist",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pastel Makeup and Style | Wedding Makeup Artist",
+    title: "Pastel Makeup and Style | Wedding Makeup Artist Syracuse NY",
     description: "Luxury wedding makeup artist and bridal stylist in Syracuse, NY.",
+    images: [absoluteUrl(defaultOgImage)],
   },
 };
 
