@@ -26,7 +26,7 @@ export default function Footer() {
       </span>
 
       <nav style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
-        {["/services", "/blog", "/book"].map((href) => (
+        {["/services", "/blog"].map((href) => (
           <Link key={href} href={href} style={{
             fontFamily: "var(--font-sans)",
             fontSize: "0.65rem",
@@ -35,9 +35,19 @@ export default function Footer() {
             color: "var(--charcoal)",
             textDecoration: "none",
           }}>
-            {href === "/book" ? "book" : href.replace("/", "")}
+            {href.replace("/", "")}
           </Link>
         ))}
+        <a href="mailto:pastelmakeupandstyle@gmail.com" style={{
+          fontFamily: "var(--font-sans)",
+          fontSize: "0.65rem",
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
+          color: "var(--charcoal)",
+          textDecoration: "none",
+        }}>
+          contact
+        </a>
         <a href="mailto:pastelmakeupandstyle@gmail.com" style={{
           fontFamily: "var(--font-sans)",
           fontSize: "0.65rem",
