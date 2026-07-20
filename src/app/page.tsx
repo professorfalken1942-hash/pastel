@@ -259,29 +259,6 @@ export default function Home() {
           >
             We can't wait to hear your story.
           </p>
-
-          <a
-            href="https://1757625758.hbportal.co/public/68c33e10dc84ad00010b83ad"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-block",
-              fontFamily: "var(--font-sans)",
-              fontSize: "0.8rem",
-              fontWeight: 500,
-              color: "var(--charcoal)",
-              backgroundColor: bookHover ? "rgba(255, 174, 215, 0.8)" : "var(--pink)",
-              border: "none",
-              padding: "0.75rem 2rem",
-              cursor: "pointer",
-              textDecoration: "none",
-              transition: "background-color 0.2s",
-            }}
-            onMouseEnter={() => setBookHover(true)}
-            onMouseLeave={() => setBookHover(false)}
-          >
-            Book
-          </a>
         </div>
       </section>
 
