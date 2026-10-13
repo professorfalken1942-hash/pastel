@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Artist Series — Pastel Makeup &amp; Style</title>
+  <meta name="description" content="PRO MUA 101: Just The Basics. Four one-to-one sessions for makeup artists at the Pastel studio in Syracuse, New York. November 2026.">
+  <meta property="og:title" content="The Artist Series — November 2026">
+  <meta property="og:description" content="I'm opening up the studio. Four 1:1 sessions for makeup artists. PRO MUA 101: Just The Basics.">
+  <meta property="og:image" content="https://pastel-navy.vercel.app/artist-series/assets/kit.jpg">
+  <meta property="og:url" content="https://pastel-navy.vercel.app/artist-series">
+  <link rel="canonical" href="https://pastel-navy.vercel.app/artist-series">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#c8c4bf">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23c8c4bf'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' text-anchor='middle' fill='%232b2a28'%3EAS%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wall: #c8c4bf;
+      --wall-deep: #a9a49e;
+      --paper: #f3f1ec;
+      --ink: #2b2a28;
+      --ink-soft: #55524d;
+      --rule: rgba(43, 42, 40, 0.28);
+      --mono: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+      --gutter: clamp(16px, 5vw, 64px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--mono);
+      color: var(--ink);
+      background: var(--wall);
+      /* Soft wall light from the upper right, like the flyer's window side. */
+      background-image:
+        radial-gradient(ellipse 90% 1400px at 85% 0%, rgba(255, 255, 255, 0.35), transparent 70%),
+        linear-gradient(180deg, var(--wall) 0%, var(--wall) 40%, var(--wall-deep) 100%);
+      font-size: 15px;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Film grain over everything, to keep the flat colour from looking digital. */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    /* ---------------------------------------------------------- header -- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding-top: clamp(20px, 4vw, 40px);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+    }
+
+    .series-mark { text-align: right; }
+
+    .brand {
+      text-decoration: none;
+      text-align: right;
+      color: var(--ink-soft);
+    }
+    .brand:hover { color: var(--ink); }
+
+    /* ------------------------------------------------------------ hero -- */
+    .hero {
+      padding: clamp(72px, 14vw, 160px) 0 clamp(72px, 12vw, 140px);
+    }
+
+    .hero-copy {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 22ch;
+      font-size: clamp(17px, 2.3vw, 22px);
+      display: grid;
+      gap: 1.6em;
+    }
+
+    .hero-copy p { word-spacing: 0.35em; }
+
+    .hero h1 {
+      font: inherit;
+      word-spacing: 0.35em;
+    }
+
+    /* --------------------------------------------------------- feature -- */
+    .feature {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+      padding-bottom: clamp(80px, 12vw, 140px);
+    }
+
+    .print {
+      background: var(--paper);
+      padding: clamp(8px, 1.2vw, 12px);
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.12),
+        0 18px 40px -18px rgba(0, 0, 0, 0.35);
+      max-width: 520px;
+      width: 100%;
+      transform: rotate(-0.6deg);
+    }
+
+    .print img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: grayscale(1) contrast(1.02);
+    }
+
+    .feature-text {
+      font-size: clamp(19px, 2.6vw, 30px);
+      line-height: 1.45;
+      word-spacing: 0.2em;
+    }
+
+    /* The flyer's wide justified block only reads well once the column is wide enough. */
+    @media (min-width: 760px) {
+      .feature-text { text-align: justify; text-align-last: left; }
+    }
+
+    @media (min-width: 760px) {
+      .feature { grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 4vw, 56px); }
+    }
+
+    /* --------------------------------------------------------- details -- */
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink-soft);
+      margin-bottom: 24px;
+    }
+
+    .details {
+      padding-bottom: clamp(80px, 12vw, 140px);
+    }
+
+    .details dl {
+      border-top: 1px solid var(--rule);
+    }
+
+    .details .row {
+      display: grid;
+      grid-template-columns: minmax(96px, 30%) 1fr;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .details dt {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      color: var(--ink-soft);
+      padding-top: 3px;
+    }
+
+    .details dd { font-size: 15px; }
+
+    /* ----------------------------------------------------------- focus -- */
+    .focus {
+      padding-bottom: clamp(80px, 12vw, 140px);
+    }
+
+    .focus ol {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .focus li {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 8px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .focus .n { color: var(--ink-soft); font-size: 13px; padding-top: 2px; }
+    .focus h3 { font: inherit; font-weight: 700; font-size: 15px; }
+    .focus p { color: var(--ink-soft); font-size: 14px; margin-top: 4px; }
+
+    @media (min-width: 760px) {
+      .focus ol { grid-template-columns: 1fr 1fr; column-gap: 48px; }
+    }
+
+    /* -------------------------------------------------------- interest -- */
+    .interest {
+      text-align: center;
+      padding-bottom: clamp(96px, 14vw, 160px);
+    }
+
+    .interest h2 {
+      font: inherit;
+      font-size: clamp(19px, 2.6vw, 26px);
+      word-spacing: 0.3em;
+      margin-bottom: 12px;
+    }
+
+    .interest .note {
+      color: var(--ink-soft);
+      max-width: 40ch;
+      margin: 0 auto 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 28px;
+      background: var(--ink);
+      color: var(--paper);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 13px;
+      transition: background 0.2s ease;
+    }
+    .button:hover { background: #000; }
+    .button:focus-visible, a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+    .alt-link {
+      display: block;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .follow {
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      margin-top: 56px;
+      color: var(--ink-soft);
+    }
+
+    /* ---------------------------------------------------------- footer -- */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 24px 0 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 24px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+    }
+
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    /* Gentle fade-in as sections arrive. Off for anyone who prefers less motion. */
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .reveal.is-in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+    .no-js .reveal { opacity: 1; transform: none; }
+  </style>
+</head>
+<body class="no-js">
+  <div class="wrap">
+    <header>
+      <div class="series-mark">The Artist Series<br>November 2026</div>
+      <a class="brand" href="https://www.instagram.com/pastelmakeupandstyle/" rel="noopener">Pastel<br>Makeup &amp; Style</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <h1 class="reveal">I’m opening up the studio.</h1>
+          <p class="reveal">4 1:1 sessions to makeup artists.</p>
+          <p class="reveal">PRO MUA 101: Just The Basics</p>
+        </div>
+      </section>
+
+      <section class="feature">
+        <figure class="print reveal">
+          <img src="/artist-series/assets/kit.jpg" width="500" height="500"
+               alt="A makeup kit laid out on a checkered table: foundations, brushes, palettes and compacts.">
+        </figure>
+        <p class="feature-text reveal">
+          Transform your kit, hands-on with a live model, techniques to a solid foundation into makeup artistry.
+        </p>
+      </section>
+
+      <section class="details reveal" aria-labelledby="details-label">
+        <h2 class="section-label" id="details-label">The details</h2>
+        <dl>
+          <div class="row"><dt>Course</dt><dd>PRO MUA 101: Just The Basics</dd></div>
+          <div class="row"><dt>Format</dt><dd>One-to-one, in the studio</dd></div>
+          <div class="row"><dt>Places</dt><dd>Four sessions</dd></div>
+          <div class="row"><dt>For</dt><dd>Makeup artists building their foundation</dd></div>
+          <div class="row"><dt>When</dt><dd>November 2026</dd></div>
+          <div class="row"><dt>Where</dt><dd>Syracuse, New York</dd></div>
+        </dl>
+      </section>
+
+      <section class="focus reveal" aria-labelledby="focus-label">
+        <h2 class="section-label" id="focus-label">What we’ll work on</h2>
+        <ol>
+          <li><span class="n">01</span><div><h3>Your kit</h3><p>Go through what you carry and make it work harder.</p></div></li>
+          <li><span class="n">02</span><div><h3>A live model</h3><p>Hands-on, on a real face, not a demo from across the room.</p></div></li>
+          <li><span class="n">03</span><div><h3>Technique</h3><p>The core methods, practiced until they feel natural.</p></div></li>
+          <li><span class="n">04</span><div><h3>A solid foundation</h3><p>The basics everything else in makeup artistry is built on.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="interest reveal" aria-labelledby="interest-label">
+        <h2 id="interest-label">Four places. One-to-one.</h2>
+        <p class="note">Send a note to hold your interest and you’ll hear first when dates and booking open.</p>
+        <a class="button"
+           href="mailto:pastelmakeupandstyle@gmail.com?subject=The%20Artist%20Series%20%E2%80%94%20November%202026&body=Hi%20Julianna%2C%0A%0AI%E2%80%99d%20love%20to%20hear%20more%20about%20PRO%20MUA%20101.%0A%0AName%3A%0AInstagram%3A%0AHow%20long%20I%E2%80%99ve%20been%20doing%20makeup%3A%0A">
+          Register interest
+        </a>
+        <a class="alt-link" href="https://www.instagram.com/pastelmakeupandstyle/" rel="noopener">or message @pastelmakeupandstyle</a>
+        <p class="follow">More details to follow.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Pastel Makeup &amp; Style · Syracuse, New York</span>
+      <a href="https://www.instagram.com/pastelmakeupandstyle/" rel="noopener">Instagram</a>
+    </footer>
+  </div>
+
+  <script>
+    document.body.classList.remove('no-js');
+    const items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        }
+      }, { rootMargin: '0px 0px -8% 0px' });
+      items.forEach((el) => io.observe(el));
+    } else {
+      items.forEach((el) => el.classList.add('is-in'));
+    }
+  </script>
+</body>
+</html>
