@@ -4,6 +4,7 @@ const LINKS = [
   { href: "https://www.pastelweddings.art", label: "Pastel Weddings" },
   // Plain path, not next/link: /artist-series is a static page served by a rewrite.
   { href: "/artist-series", label: "The Artist Series" },
+  { href: "https://instagram.com/pastelmakeupandstyle", label: "Instagram" },
 ];
 
 export default function Home() {
