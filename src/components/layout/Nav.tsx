@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/services", label: "Services" },
@@ -12,6 +13,10 @@ const links = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+
+  // The homepage is a standalone link list.
+  const pathname = usePathname();
+  if (pathname === "/") return null;
 
   return (
     <>

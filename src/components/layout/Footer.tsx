@@ -2,9 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
   const [instagramHover, setInstagramHover] = useState(false);
+
+  // The homepage is a standalone link list.
+  const pathname = usePathname();
+  if (pathname === "/") return null;
   return (
     <footer style={{
       borderTop: "1px solid var(--pink)",
