@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 const LINKS = [
+  { href: "https://www.instagram.com/p/Df-kgemFRaa/", label: "New Year's Event" },
   { href: "https://www.pastelweddings.art", label: "Pastel Weddings" },
   // Plain path, not next/link: /artist-series is a static page served by a rewrite.
   { href: "/artist-series", label: "The Artist Series" },
