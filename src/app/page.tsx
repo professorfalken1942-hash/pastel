@@ -41,9 +41,12 @@ export default function Home() {
         .home-link:hover, .home-link:focus-visible { background-color: var(--pink); }
       `}</style>
 
+      {/* The logo carries the brand visually; this gives the page its heading for search and screen readers. */}
+      <h1 className="sr-only">Pastel Makeup and Style: wedding hair, makeup and styling in Syracuse, NY</h1>
+
       <Image
         src="/pastel-logo.png"
-        alt="Pastel"
+        alt="Pastel Makeup and Style"
         width={160}
         height={160}
         priority

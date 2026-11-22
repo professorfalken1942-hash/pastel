@@ -1,4 +1,4 @@
-import { absoluteUrl, contactEmail, defaultOgImage, siteName, siteUrl } from "@/lib/seo";
+import { absoluteUrl, assetUrl, contactEmail, defaultOgImage, siteName, siteUrl } from "@/lib/seo";
 
 export default function LocalBusinessSchema() {
   const schema = {
@@ -6,8 +6,8 @@ export default function LocalBusinessSchema() {
     "@type": ["LocalBusiness", "BeautySalon"],
     "@id": `${siteUrl}/#business`,
     name: siteName,
-    image: absoluteUrl(defaultOgImage),
-    logo: absoluteUrl("/pastel-logo.png"),
+    image: assetUrl(defaultOgImage),
+    logo: assetUrl("/pastel-logo.png"),
     description: "Luxury wedding makeup artist and stylist based in Syracuse, NY. Offering bridal makeup, editorial, TV/film makeup, wardrobe styling, and special event beauty services.",
     email: contactEmail,
     address: {

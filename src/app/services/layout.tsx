@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { absoluteUrl, defaultOgImage } from "@/lib/seo";
+import { absoluteUrl, assetUrl, defaultOgImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Wedding Makeup & Styling Services in Syracuse NY",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Wedding Makeup & Styling Services in Syracuse NY",
     description: "Wedding beauty, bridal makeup, editorial, TV/film, wardrobe styling, and special event services by Julianna Pastella.",
     url: absoluteUrl("/services"),
-    images: [absoluteUrl(defaultOgImage)],
+    images: [assetUrl(defaultOgImage)],
   },
 };
 

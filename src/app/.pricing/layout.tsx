@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { absoluteUrl, defaultOgImage } from "@/lib/seo";
+import { absoluteUrl, assetUrl, defaultOgImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Wedding Makeup Pricing & Bridal Beauty Packages",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Wedding Makeup Pricing & Bridal Beauty Packages",
     description: "Transparent starting pricing for wedding beauty and styling services by Pastel Makeup and Style.",
     url: absoluteUrl("/pricing"),
-    images: [absoluteUrl(defaultOgImage)],
+    images: [assetUrl(defaultOgImage)],
   },
 };
 

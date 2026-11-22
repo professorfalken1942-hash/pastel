@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { absoluteUrl, defaultOgImage } from "@/lib/seo";
+import { absoluteUrl, assetUrl, defaultOgImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Book a Bridal Makeup Consultation",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Book a Bridal Makeup Consultation",
     description: "Reserve your wedding makeup or styling consultation with Pastel Makeup and Style in Syracuse, NY.",
     url: absoluteUrl("/book"),
-    images: [absoluteUrl(defaultOgImage)],
+    images: [assetUrl(defaultOgImage)],
   },
 };
 

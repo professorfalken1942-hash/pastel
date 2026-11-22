@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { client } from "@/sanity/client";
 import { postsQuery } from "@/sanity/queries";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, assetUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Wedding Beauty Journal",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Wedding Beauty Journal",
     description: "Bridal makeup inspiration, beauty tips, styling notes, and behind-the-scenes from Pastel Makeup and Style.",
     url: absoluteUrl("/blog"),
-    images: [absoluteUrl("/journal-feature.jpg")],
+    images: [assetUrl("/journal-feature.jpg")],
   },
 };
 

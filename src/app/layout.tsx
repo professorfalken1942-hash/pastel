@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 import LogoSplash from "@/components/layout/LogoSplash";
 import LocalBusinessSchema from "@/components/schema/LocalBusinessSchema";
 import FAQSchema from "@/components/schema/FAQSchema";
-import { absoluteUrl, defaultOgImage, siteName, siteUrl } from "@/lib/seo";
+import { assetUrl, defaultOgImage, defaultOgImageSize, siteName, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -52,9 +52,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: absoluteUrl(defaultOgImage),
-        width: 1200,
-        height: 630,
+        url: assetUrl(defaultOgImage),
+        ...defaultOgImageSize,
         alt: "Pastel Makeup and Style - Wedding Makeup Artist",
       },
     ],
@@ -63,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pastel Makeup and Style | Wedding Makeup Artist Syracuse NY",
     description: "Luxury wedding makeup artist and bridal stylist in Syracuse, NY.",
-    images: [absoluteUrl(defaultOgImage)],
+    images: [assetUrl(defaultOgImage)],
   },
 };
 
